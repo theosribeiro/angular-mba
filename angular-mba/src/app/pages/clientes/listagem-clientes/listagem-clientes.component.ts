@@ -5,6 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './listagem-clientes.component.html',
   styleUrls: ['./listagem-clientes.component.scss']
 })
-export class ListagemClientesComponent {
+export class ListagemClientesComponent implements OnInit{
 
+  ngOnInit(): void {
+    
+  }
 }

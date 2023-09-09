@@ -14,7 +14,15 @@ const routes: Routes = [
       {
         path: 'listagem',
         component: ListagemClientesComponent
-      }
+      },
+      {
+        path: 'cadastro',
+        component: ListagemClientesComponent
+      },
+      {
+        path: 'editar/:id',
+        component: ListagemClientesComponent
+      },
     ]
   },
 ];

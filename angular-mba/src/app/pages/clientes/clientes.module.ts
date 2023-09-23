@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListagemUsuarioComponent } from './listagem-usuario/listagem-usuario.component';
 import { ListagemClientesComponent } from './listagem-clientes/listagem-clientes.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
 @NgModule({
   declarations: [
-    ListagemUsuarioComponent,
     ListagemClientesComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule,
+  ],
+  exports: [
+    ListagemClientesComponent
   ]
 })
 export class ClientesModule { }

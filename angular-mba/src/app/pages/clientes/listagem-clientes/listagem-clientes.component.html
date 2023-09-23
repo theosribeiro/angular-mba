@@ -1,3 +1,9 @@
 <div class="container mt-3">
     <h1>Listagem de Clientes</h1>
+    <ul>
+        <li *ngFor="let cliente of clientes">
+           <p>{{ cliente.nome }}</p>
+        </li>
+
+    </ul>
 </div>

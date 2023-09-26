@@ -12,11 +12,12 @@ import { CommonModule } from '@angular/common';
 import { ClientesModule } from './pages/clientes/clientes.module';
 import { RouterModule } from '@angular/router';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { ContaModule } from './pages/conta/conta.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +31,7 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
     ReactiveFormsModule,
     NgxMaskDirective,
     NgxMaskPipe,
+    ContaModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [provideNgxMask()],

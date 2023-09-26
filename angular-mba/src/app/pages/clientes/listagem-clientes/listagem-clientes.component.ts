@@ -17,21 +17,18 @@ export class ListagemClientesComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
 
-  constructor(private clienteService: ClientesService){
+  constructor(private _clienteService: ClientesService){
   }
-
 
   ngAfterViewInit() {
     this.listarClientes(1, 5)
   }
 
-
   listarClientes(page: number, pageSize: number) {
-    this.clienteService.listar_paginado(page, pageSize).subscribe(clientes => {
+    this._clienteService.listar_paginado(page, pageSize).subscribe(clientes => {
       this.dataSource.data = clientes;
     });
   }
-
 
   onPageChange(event: PageEvent) {
     const pageIndex = event.pageIndex + 1;
@@ -39,10 +36,9 @@ export class ListagemClientesComponent implements AfterViewInit {
     this.listarClientes(pageIndex, pageSize);
   }
 
-
   deletarCliente(id: number){
     Swal.fire({
-      title: 'Você tem certeza que deseja deletar?',
+      title: 'Você tem certeza que deseja excluir?',
       text: "Não tem como reverter essa ação",
       icon: 'warning',
       showCancelButton: true,
@@ -51,12 +47,12 @@ export class ListagemClientesComponent implements AfterViewInit {
       confirmButtonText: 'Deletar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.clienteService.deletar(id).subscribe({
+        this._clienteService.deletar(id).subscribe({
           next: () => {
             Swal.fire({
               icon: 'success',
               title: 'Sucesso',
-              text: 'Cliente deletado com sucesso!',
+              text: 'Cliente excluido com sucesso!',
               showConfirmButton: false,
               timer: 1500
             })
@@ -67,7 +63,7 @@ export class ListagemClientesComponent implements AfterViewInit {
             Swal.fire({
               icon: 'error',
               title: 'Oops...',
-              text: 'Erro ao deletar cliente!',
+              text: 'Erro ao excluir o cliente!',
             })
           }})
       }})}

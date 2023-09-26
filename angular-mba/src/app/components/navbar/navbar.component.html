@@ -1,9 +1,40 @@
 <mat-toolbar color="primary">
-    <span>My Bank</span>
-    <span class="ms-auto"></span>
-    <p>Clientes</p>
-    <p>Contas</p>
-    <p>Depósitos</p>
-    <p>Saques</p>
-    <p>Transferências</p>
+    <mat-toolbar-row>
+        <button mat-icon-button aria-label="My Bank" routerLink="/">
+            <mat-icon>home</mat-icon>
+        </button>
+        
+        <span class="ms-auto">My Bank</span>
+        
+        <button mat-icon-button class="ms-auto" [matMenuTriggerFor]="menu" aria-label="Example icon-button with menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </mat-toolbar-row>
 </mat-toolbar>
+
+<mat-menu #menu="matMenu" >
+    <button mat-menu-item routerLink="/cliente">
+        <mat-icon color="primary">group</mat-icon>
+        <span>Clientes</span>
+    </button>
+    
+    <button mat-menu-item routerLink="/conta">
+        <mat-icon color="accent">account_balance_wallet</mat-icon>
+        <span>Contas</span>
+    </button>
+    
+    <button mat-menu-item routerLink="/conta/deposito">
+        <mat-icon color="primary">savings</mat-icon>
+        <span>Depósitos</span>
+    </button>
+    
+    <button mat-menu-item routerLink="/conta/saque">
+        <mat-icon color="warn">money</mat-icon>
+        <span>Saques</span>
+    </button>
+
+    <button mat-menu-item routerLink="/conta/transferencia">
+        <mat-icon color="accent">payments</mat-icon>
+        <span>Transferências</span>
+    </button>
+  </mat-menu>
